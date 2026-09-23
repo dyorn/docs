@@ -74,15 +74,15 @@ Storage as [ndjson](http://ndjson.org/) files separated by category. You can
 Console](https://console.cloud.google.com/storage/quickdraw_dataset).
 
 To download the data we recommend using
-[gsutil](https://cloud.google.com/storage/docs/gsutil_install#install) to
+[gcloud](https://docs.cloud.google.com/sdk/docs/install-sdk) to
 download the entire dataset. Note that the original .ndjson files require
 downloading ~22GB.
 
-Then use the following command to check that your gsutil installation works and
+Then use the following command to check that your gcloud installation works and
 that you can access the data bucket:
 
 ```shell
-gsutil ls -r "gs://quickdraw_dataset/full/simplified/*"
+gcloud storage ls --recursive "gs://quickdraw_dataset/full/simplified/*"
 ```
 
 which will output a long list of files like the following:
@@ -100,7 +100,7 @@ Then create a folder and download the dataset there.
 ```shell
 mkdir rnn_tutorial_data
 cd rnn_tutorial_data
-gsutil -m cp "gs://quickdraw_dataset/full/simplified/*" .
+gcloud storage cp "gs://quickdraw_dataset/full/simplified/*" .
 ```
 
 This download will take a while and download a bit more than 23GB of data.
